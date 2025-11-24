@@ -29,10 +29,31 @@ class Time:
                 self.seconds += value
             case _:
                 print('Wrong type!')
+        
+        self.normalize()
 
+    def normalize(self):
+        #sekundy wiekszę np 90 -> 1:30
+        while self.seconds >= 60:
+            self.seconds -= 60
+            self.minutes += 1
+        while self.seconds < 0:
+            self.seconds += 60
+            self.minutes -= 1
+        # minuty tak samo
+        while self.minutes >= 60:
+            self.minutes -= 60
+            self.hours += 1
+        while self.minutes < 0:
+            self.minutes += 60
+            self.hours -= 1
+        #godziny 23 -> +2 -> 1
+        while self.hours >= 24:
+            self.hours -= 24
+        while self.hours < 0:
+            self.hours += 24
 
-
-obj1 = Time(9,9,9)
+obj1 = Time(23,9,9)
 print(obj1.display())
-obj1.update('h', 1)
+obj1.update('h', 2)
 print(obj1.display())
