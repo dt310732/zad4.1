@@ -58,7 +58,6 @@ def menu():
     minutes = int(input('Podaj minuty: '))
     seconds = int(input('Podaj sekundy: '))
     obj1 = Time(hours, minutes, seconds)
-    obj1.display()
     while True:
         print('Wyświetl godzinę: 1')
         print('Zaktualizuj godzinę 2: ')
